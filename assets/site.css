@@ -34,14 +34,21 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Two voices. Headings, labels and buttons speak in Manrope, the face of
+   the app. Running text speaks in a serif made for reading on screens, so
+   a heading and the paragraph under it never look like the same thing. */
 body {
   margin: 0;
   background: var(--surface);
   color: var(--text);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+h1, h2, h3, .wordmark, .eyebrow, .pill, .meta, footer, th {
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-  font-weight: 500;
 }
 
 main {
@@ -91,29 +98,30 @@ main {
 }
 
 h1 {
-  font-size: 34px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: 36px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   font-weight: 800;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   font-weight: 800;
-  margin: 36px 0 10px;
+  margin: 40px 0 10px;
 }
 
 h3 {
   font-size: 17px;
-  font-weight: 700;
-  margin: 24px 0 6px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  margin: 26px 0 6px;
 }
 
 p, li {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 
 ul {
@@ -124,9 +132,13 @@ li {
   margin-bottom: 8px;
 }
 
+strong {
+  font-weight: 600;
+}
+
 a {
   color: var(--text);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-color: var(--text3);
   text-underline-offset: 3px;
@@ -137,9 +149,10 @@ a:hover {
 }
 
 .lead {
-  font-size: 20px;
+  font-size: 21px;
+  line-height: 1.45;
   color: var(--text2);
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 28px;
 }
 
@@ -198,7 +211,7 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--text2);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 20px;
@@ -206,6 +219,7 @@ footer {
 
 footer a {
   color: var(--text2);
+  font-weight: 700;
 }
 
 code {
