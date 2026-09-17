@@ -28,6 +28,13 @@ Delete the parked A record and the parked `www` record that GoDaddy adds
 by default. The mail records for `support@getallez.app` come from iCloud+
 and live next to these.
 
+## Brand assets
+
+The favicons, the app icon and the social card in `assets/` are copies from
+the design package at `allez/logos_design/app_icons_allez` (v2, Space
+Grotesk wordmark). When that package changes, copy the files again; do not
+edit them here.
+
 ## Keeping the privacy policy true
 
 The policy states what the app does. When the app changes in a way the
