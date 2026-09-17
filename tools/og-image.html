@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- The source of assets/og-image.png. Render it at 1200x630 with headless
+     Chrome and copy the result over the PNG:
+       chrome --headless=new --window-size=1200,630 --screenshot=og.png tools/og-image.html
+     The icon next to this file is web/icon-512.png from the design package. -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #0F1115; display: flex; align-items: center; justify-content: center; gap: 72px; font-family: "Space Grotesk", sans-serif; }
+  .icon { width: 320px; height: 320px; border-radius: 72px; display: block; }
+  .words { display: flex; flex-direction: column; }
+  .name { color: #F4F5F7; font-weight: 700; font-size: 148px; line-height: 1; letter-spacing: -0.045em; margin: 0 0 6px -6px; }
+  .sub { color: #A2A8B5; font-weight: 500; font-size: 34px; line-height: 1; margin: 12px 0 0; }
+  .bar { display: flex; gap: 8px; margin-top: 26px; width: 504px; }
+  .bar span { height: 8px; border-radius: 4px; background: #BF0076; flex: 2; }
+  .bar span.r { background: #007174; flex: 1; }
+  .bar span.g { background: #4C586F; flex: 1; }
+</style></head>
+<body>
+  <img class="icon" src="icon.png" alt="">
+  <div class="words">
+    <div class="name">Allez</div>
+    <div class="sub">HIIT Interval Timer</div>
+    <div class="bar"><span class="g"></span><span></span><span class="r"></span><span></span><span class="r"></span><span></span><span class="r"></span><span></span></div>
+  </div>
+</body></html>
