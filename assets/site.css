@@ -34,6 +34,17 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Nothing on the page may widen it. The screens row scrolls inside its
+   own box; the page itself never scrolls sideways. */
+body {
+  overflow-x: clip;
+}
+
 /* Two voices. Headings, labels and buttons speak in Manrope, the face of
    the app. Running text speaks in a serif made for reading on screens, so
    a heading and the paragraph under it never look like the same thing. */
@@ -184,11 +195,15 @@ a:hover {
 
 .pill {
   display: inline-block;
+  max-width: 100%;
   padding: 10px 18px;
   border-radius: 999px;
   background: var(--text);
   color: var(--surface);
   font-weight: 800;
+  font-size: 15px;
+  line-height: 1.35;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -293,30 +308,55 @@ section {
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.hero > * {
+  min-width: 0;
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 32px;
 }
 
-.hero-phone {
-  max-width: 300px;
+.hero .lead {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Centred and modest on a phone; a phone photo does not need to be
+   phone-sized. On a small screen it never takes more than six tenths of
+   the height, so the first screen still shows the words. */
+.hero .hero-phone {
+  width: fit-content;
+  max-width: 250px;
   margin: 0 auto;
+}
+
+@media (max-width: 759px) {
+  .hero .hero-phone img {
+    width: auto;
+    max-width: 100%;
+    max-height: 60vh;
+  }
 }
 
 @media (min-width: 760px) {
   .hero {
-    grid-template-columns: 1.15fr .85fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
     gap: 48px;
   }
   .hero h1 {
     font-size: 48px;
   }
-  .hero-phone {
+  .hero .lead {
+    font-size: 21px;
+    line-height: 1.45;
+  }
+  .hero .hero-phone {
     max-width: 320px;
     margin: 0;
     justify-self: end;
@@ -368,6 +408,7 @@ section {
 
 .screens .phone {
   scroll-snap-align: start;
+  min-width: 0;
 }
 
 @media (min-width: 760px) {
