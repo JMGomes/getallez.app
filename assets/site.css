@@ -251,3 +251,298 @@ th {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* --- The landing page. The inner pages keep the narrow reading column. */
+
+main.wide {
+  max-width: 960px;
+}
+
+.appicon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  vertical-align: -6px;
+  margin-right: 8px;
+}
+
+/* The hero bar runs, like a routine. Off for people who asked for less
+   motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .bar.live span {
+    animation: run 4.8s ease-in-out infinite;
+  }
+  .bar.live span:nth-child(1) { animation-delay: 0s; }
+  .bar.live span:nth-child(2) { animation-delay: .6s; }
+  .bar.live span:nth-child(3) { animation-delay: 1.2s; }
+  .bar.live span:nth-child(4) { animation-delay: 1.8s; }
+  .bar.live span:nth-child(5) { animation-delay: 2.4s; }
+  .bar.live span:nth-child(6) { animation-delay: 3s; }
+  .bar.live span:nth-child(7) { animation-delay: 3.6s; }
+  .bar.live span:nth-child(8) { animation-delay: 4.2s; }
+  @keyframes run {
+    0%, 100% { opacity: .35; }
+    12% { opacity: 1; }
+    30% { opacity: .35; }
+  }
+}
+
+section {
+  margin: 56px 0 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero-phone {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 760px) {
+  .hero {
+    grid-template-columns: 1.15fr .85fr;
+    gap: 48px;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .hero-phone {
+    max-width: 320px;
+    margin: 0;
+    justify-self: end;
+  }
+}
+
+.phone {
+  margin: 0;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+}
+
+.phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.phone figcaption {
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text2);
+  padding: 12px 16px 14px;
+  background: var(--card);
+}
+
+/* Three phones in a row, or a row you swipe through on a narrow screen. */
+.screens {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(230px, 1fr);
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 2px 16px;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  scrollbar-width: none;
+}
+
+.screens::-webkit-scrollbar {
+  display: none;
+}
+
+.screens .phone {
+  scroll-snap-align: start;
+}
+
+@media (min-width: 760px) {
+  .screens {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    margin: 0;
+    padding: 8px 0 0;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.icon.inline {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+
+/* The interval types, each in its own colour, as on the timer. */
+.intervals {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px 9px 12px;
+  border-radius: 999px;
+  background: var(--tint);
+  color: #FAFAFA;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+
+.feature h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text2);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--tint);
+  color: #FAFAFA;
+}
+
+.feature-icon .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  .plans {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.plan {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px 20px 16px;
+}
+
+.plan.pro {
+  border: 1.5px solid #F5C449;
+}
+
+.plan h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.propill {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: #F5C449;
+  color: #2B1D00;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.ticks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ticks li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.ticks .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  color: var(--rest);
+}
+
+.plan.pro .ticks .icon {
+  color: #F5C449;
+}
+
+footer .made {
+  flex-basis: 100%;
+  color: var(--text3);
+  font-weight: 600;
+}

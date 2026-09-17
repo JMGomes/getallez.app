@@ -7,6 +7,23 @@
   <meta name="description" content="Allez is an interval timer for HIIT and Tabata. Cues you can hear with the screen locked, four beep styles or a spoken voice, and everything stays on your device.">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F4F2">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1115">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Allez">
+  <meta property="og:title" content="Allez — HIIT interval timer">
+  <meta property="og:description" content="The interval timer you can follow by ear. Beeps or a voice that cut through your music, with the phone in your pocket and the screen off.">
+  <meta property="og:url" content="https://getallez.app/">
+  <meta property="og:image" content="https://getallez.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Allez — HIIT interval timer">
+  <meta name="twitter:description" content="The interval timer you can follow by ear.">
+  <meta name="twitter:image" content="https://getallez.app/assets/og-image.png">
   <!-- The Smart App Banner needs the numeric App Store id. Add it once the
        app record exists: <meta name="apple-itunes-app" content="app-id=ID"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,36 +32,149 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<main>
+<!-- The icons, drawn once and used by reference below. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 2h4M12 2v3"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.4 0 7-2.9 7-6.6 0-3.2-2.2-5.1-3.6-7.4-.5 1.6-1.4 2.6-2.4 3-.3-3-1.8-5.8-4.5-8C8.6 6.3 5 9.7 5 15.4 5 19.1 7.6 22 12 22z"/><path d="M12 22c-1.7 0-3-1.3-3-3 0-1.6 1.3-2.5 2-4 1.2 1 2 2.5 2 4 0 1.7-1.3 3-3 3z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M3 8c2 0 2.5-1.5 4.5-1.5S10 8 12 8s2.5-1.5 4.5-1.5S19 8 21 8M3 13c2 0 2.5-1.5 4.5-1.5S10 13 12 13s2.5-1.5 4.5-1.5S19 13 21 13M3 18c2 0 2.5-1.5 4.5-1.5S10 18 12 18s2.5-1.5 4.5-1.5S19 18 21 18"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1M12 2l-2.5 2.5M12 2l2.5 2.5M12 22l-2.5-2.5M12 22l2.5-2.5M2 12l2.5-2.5M2 12l2.5 2.5M22 12l-2.5-2.5M22 12l-2.5 2.5"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></symbol>
+  <symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 10v4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-island" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"/><rect x="8" y="6.5" width="8" height="3" rx="1.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+</svg>
+
+<main class="wide">
   <header class="brand">
-    <a class="wordmark" href="/">Allez</a>
-    <div class="bar" aria-hidden="true">
+    <a class="wordmark" href="/">
+      <img class="appicon" src="assets/icons/icon-48.png" width="28" height="28" alt="">
+      Allez
+    </a>
+    <div class="bar live" aria-hidden="true">
       <span class="getready"></span><span></span><span class="rest"></span><span></span><span class="rest"></span><span></span><span class="rest"></span><span></span>
     </div>
   </header>
 
-  <h1>The interval timer you can follow by ear.</h1>
-  <p class="lead">Tabata, boxing rounds and your own intervals. Beeps or a voice that cut through your music, with the phone in your pocket and the screen off.</p>
+  <section class="hero">
+    <div>
+      <h1>The interval timer you can follow by ear.</h1>
+      <p class="lead">Tabata, boxing rounds and your own intervals. A distinct sound for every change, in beeps or in a voice, loud enough to cut through your music with the phone in your pocket and the screen off.</p>
+      <div class="actions">
+        <span class="pill quiet">Coming soon to the App Store and Google Play</span>
+      </div>
+    </div>
+    <figure class="phone hero-phone">
+      <img src="assets/screens/timer_1b_work_dark.png" width="780" height="1688" alt="The Allez timer during a work interval: the word WORK, a ring counting down from fifteen seconds, and the next interval below." loading="eager">
+    </figure>
+  </section>
 
-  <div class="actions">
-    <span class="pill quiet">Coming soon to the App Store and Google Play</span>
-  </div>
-
-  <div class="card">
-    <ul>
-      <li><strong>Hear every change.</strong> A distinct sound for work, rest and recovery, a 3-2-1 countdown, and a chime at the end. They keep playing while the screen is locked.</li>
-      <li><strong>Beeps or a voice.</strong> Four beep styles, or spoken cues in a voice from your phone.</li>
-      <li><strong>Yours to keep.</strong> Routines, history and settings live on your device. No account, no analytics, no ads.</li>
+  <section>
+    <p class="eyebrow">Six kinds of interval, six sounds</p>
+    <h2>You always know where you are.</h2>
+    <p>Every interval type has its own colour on the screen and its own sound in your ear. Warm up, work, rest, recover between cycles, cool down. The screen changes colour so hard you can read it across the room; the beep changes so you do not have to look at all.</p>
+    <ul class="intervals" aria-label="The six interval types">
+      <li class="chip" style="--tint:#4C586F"><svg class="icon"><use href="#i-timer"/></svg>Get ready</li>
+      <li class="chip" style="--tint:#9A4A00"><svg class="icon"><use href="#i-flame"/></svg>Warm-up</li>
+      <li class="chip" style="--tint:#BF0076"><svg class="icon"><use href="#i-bolt"/></svg>Work</li>
+      <li class="chip" style="--tint:#007174"><svg class="icon"><use href="#i-pause"/></svg>Rest</li>
+      <li class="chip" style="--tint:#5447A1"><svg class="icon"><use href="#i-waves"/></svg>Recovery</li>
+      <li class="chip" style="--tint:#2D5E7A"><svg class="icon"><use href="#i-snow"/></svg>Cooldown</li>
     </ul>
-  </div>
+  </section>
 
-  <h2>Free, with a one-time Pro</h2>
-  <p>The free app is a complete timer: a quick routine, six templates and three saved routines of your own. Pro is a single purchase, not a subscription. It adds unlimited saved routines, named exercises, several blocks in one routine, and your full history with weekly stats.</p>
+  <section>
+    <p class="eyebrow">A look inside</p>
+    <div class="screens">
+      <figure class="phone">
+        <img src="assets/screens/quick_2a_light.png" width="780" height="1688" alt="The Quick routine screen: get ready, work, rest, sets, recovery and cycles, with a Start button showing four minutes." loading="lazy">
+        <figcaption>Set a routine in seconds. Tap a value, hold to change it fast.</figcaption>
+      </figure>
+      <figure class="phone">
+        <img src="assets/screens/timer_1b_rest_dark.png" width="780" height="1688" alt="The timer during a rest interval, in teal." loading="lazy">
+        <figcaption>Rest is teal, work is magenta. Readable from two metres.</figcaption>
+      </figure>
+      <figure class="phone">
+        <img src="assets/screens/history_8f_pro.png" width="780" height="1688" alt="The history screen: workouts this week, work time and streak, then the workouts grouped by week." loading="lazy">
+        <figcaption>Every workout kept, with the week in numbers.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Built for the middle of a burpee</p>
+    <h2>Made to be heard, not watched.</h2>
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#BF0076"><svg class="icon"><use href="#i-speaker"/></svg></span>
+        <h3>Cues that keep playing</h3>
+        <p>A sound at every change, a 3-2-1 countdown before it, and a chime at the end. They keep going with the screen locked and the app in the background.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#5447A1"><svg class="icon"><use href="#i-voice"/></svg></span>
+        <h3>Beeps or a voice</h3>
+        <p>Four beep styles: Classic, Wood, Digital and Chime. Or spoken cues, "Work", "Rest", "Last one", in a voice from your phone.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#007174"><svg class="icon"><use href="#i-island"/></svg></span>
+        <h3>On your Lock Screen</h3>
+        <p>On iPhone the interval and its countdown live in the Dynamic Island and on the Lock Screen. On Android a notification shows them, with Pause and Resume.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#9A4A00"><svg class="icon"><use href="#i-music"/></svg></span>
+        <h3>Under your music</h3>
+        <p>Your playlist dips for each cue and comes straight back. Nothing stops, nothing needs a separate volume.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#2D5E7A"><svg class="icon"><use href="#i-shield"/></svg></span>
+        <h3>Yours to keep</h3>
+        <p>Routines, history and settings live on your device and nowhere else. No account, no analytics, no ads. It works on a plane.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" style="--tint:#4C586F"><svg class="icon"><use href="#i-lock"/></svg></span>
+        <h3>Sweat-proof controls</h3>
+        <p>Big targets you can hit without looking. Lock them so a knee never pauses your set.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Free, with a one-time Pro</p>
+    <h2>The free app is the whole timer.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <ul class="ticks">
+          <li><svg class="icon"><use href="#i-check"/></svg>The Quick routine, remembered between workouts</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Six templates, from Classic Tabata to boxing rounds</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Three saved routines of your own</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>All the cues, all the voices, all the beep styles</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Your last five workouts</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro <span class="propill">one-time</span></h3>
+        <ul class="ticks">
+          <li><svg class="icon"><use href="#i-check"/></svg>Unlimited saved routines</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Named exercises: "Burpees" on the timer, not "Work"</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Blocks: several exercises in one routine, each with its own work, rest and sets</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Your full history, grouped by week, with stats</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>One purchase. No subscription. Nothing to cancel.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <a href="privacy/">Privacy policy</a>
     <a href="support/">Support</a>
-    <a href="mailto:support@getallez.app">support@getallez.app</a>
+    <a href="mailto:support@getallez.app"><svg class="icon inline"><use href="#i-mail"/></svg>support@getallez.app</a>
+    <span class="made">Made in Zurich by one person who likes Tabata.</span>
   </footer>
 </main>
 </body>
