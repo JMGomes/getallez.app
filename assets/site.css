@@ -45,8 +45,8 @@ body {
   overflow-x: clip;
 }
 
-/* Two voices. Headings, labels and buttons speak in Manrope, the face of
-   the app. Running text speaks in a serif made for reading on screens, so
+/* Two voices. Headings, labels and buttons speak in Space Grotesk, the
+   face of the app. Running text speaks in a serif made for reading on screens, so
    a heading and the paragraph under it never look like the same thing. */
 body {
   margin: 0;
@@ -59,7 +59,7 @@ body {
 }
 
 h1, h2, h3, .wordmark, .eyebrow, .pill, .meta, footer, th {
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 main {
@@ -379,7 +379,7 @@ section {
 }
 
 .phone figcaption {
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--text2);
@@ -457,7 +457,7 @@ section {
   border-radius: 999px;
   background: var(--tint);
   color: #FAFAFA;
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
   font-weight: 700;
   margin: 0;
