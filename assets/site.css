@@ -15,15 +15,33 @@
   color-scheme: light dark;
 }
 
+/* The system preference decides, unless the reader asked for light. The
+   dark tokens repeat below for the reader's own choice; CSS cannot share
+   one block between a media query and a selector. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --surface: #0F1115;
     --card: #181B21;
     --border: #242830;
     --text: #F4F5F7;
     --text2: #A2A8B5;
     --text3: #5D6472;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --surface: #0F1115;
+  --card: #181B21;
+  --border: #242830;
+  --text: #F4F5F7;
+  --text2: #A2A8B5;
+  --text3: #5D6472;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 * {
@@ -84,6 +102,64 @@ main {
   color: var(--text);
   text-decoration: none;
 }
+
+/* The right-hand group of the header. The bar and the toggle sit together
+   so the wordmark keeps the far left. */
+.brand-end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text2);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--text3);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--work);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The button offers the theme you are not in, so the icon follows the
+   theme in force. The rules mirror the token rules above. */
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+}
+
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .moon { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .moon { display: block; }
 
 .bar {
   display: flex;
