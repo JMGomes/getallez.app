@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allez website proposals</title>
+<meta name="description" content="Three replacement directions for the Allez website.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F1115">
+<link rel="icon" href="../assets/icons/favicon.ico" sizes="any">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2/src/regular/style.css">
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Space Grotesk";src:url("../assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+:root{--paper:#0F1115;--card:#171A20;--hair:#242833;--ink:#F4F5F7;--dim:#9AA2B1;--work:#BF0076;--rest:#007174;--recovery:#5447A1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif}
+.wrap{width:min(1180px,92vw);margin-inline:auto;padding:56px 0 90px}
+h1{font-weight:700;font-size:clamp(34px,5vw,56px);letter-spacing:-.04em;line-height:1.02}
+.sub{margin-top:16px;color:var(--dim);font-weight:500;font-size:17px;line-height:1.6;max-width:62ch}
+.grid{margin-top:44px;display:grid;gap:20px}
+@media (min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+.opt{background:var(--card);border:1px solid var(--hair);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s}
+.opt:hover{transform:translateY(-4px);border-color:#38404F}
+.opt .swatch{height:96px;display:flex}
+.opt .swatch b{flex:1}
+.opt .body{padding:24px;display:grid;gap:10px}
+.opt h2{font-weight:700;font-size:23px;letter-spacing:-.03em}
+.opt p{font-weight:500;font-size:15px;line-height:1.55;color:var(--dim)}
+.dials{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
+.dials span{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--hair);border-radius:999px;padding:6px 11px}
+.go{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.foot{margin-top:46px;padding-top:26px;border-top:1px solid var(--hair);color:var(--dim);font-size:15px;font-weight:500;line-height:1.6}
+.foot a{color:var(--ink)}
+
+html{color-scheme:dark}
+[id]{scroll-margin-top:90px}
+h1,h2{text-wrap:balance}
+a,button,.btn,.pillbtn,.iconbtn{touch-action:manipulation}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:#fff;color:#000;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700}
+.skip:focus{left:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main class="wrap" id="main">
+  <h1>Three directions for the Allez site.</h1>
+  <p class="sub">Each one is a complete, working page built from the real app screens and the launch film. They share the brand palette, the typeface and the existing page structure, so whichever you pick, the privacy and support pages still fit. Open them on a phone too.</p>
+
+  <div class="grid">
+    <a class="opt" href="interval/">
+      <span class="swatch"><b style="background:#BF0076"></b><b style="background:#007174"></b><b style="background:#5447A1"></b></span>
+      <span class="body">
+        <h2>Interval</h2>
+        <p>The page behaves like the app. The whole background changes colour as you scroll through the sections, a live Tabata runs in the hero, and the film sits on black in the middle.</p>
+        <span class="dials"><span>Variance 8</span><span>Motion 8</span><span>Density 3</span></span>
+        <span class="go">Open Interval <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+      </span>
+    </a>
+
+    <a class="opt" href="console/">
+      <span class="swatch"><b style="background:#07080B"></b><b style="background:#FF1E93"></b><b style="background:#00C2C6"></b></span>
+      <span class="body">
+        <h2>Console</h2>
+        <p>The app as a precision instrument. Near black, tight grid, mono labels, a real chart of a training week, and the film autoplaying muted as the hero with sound on request.</p>
+        <span class="dials"><span>Variance 6</span><span>Motion 5</span><span>Density 5</span></span>
+        <span class="go">Open Console <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+      </span>
+    </a>
+
+    <a class="opt" href="bento/">
+      <span class="swatch"><b style="background:#F2F1EE"></b><b style="background:#BF0076"></b><b style="background:#007174"></b></span>
+      <span class="body">
+        <h2>Bento</h2>
+        <p>Light and playful. A tile grid where the film takes the biggest cell, tiles tilt toward the pointer, and one corner tile runs a live Tabata. Follows the system light or dark setting.</p>
+        <span class="dials"><span>Variance 9</span><span>Motion 8</span><span>Density 4</span></span>
+        <span class="go">Open Bento <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+      </span>
+    </a>
+  </div>
+
+  <p class="foot">These are proposals, not the live site. The current site is still at <a href="../">getallez.app</a>. All three are marked noindex so they stay out of search while you decide.</p>
+</main>
+</body>
+</html>
