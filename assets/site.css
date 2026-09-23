@@ -455,6 +455,24 @@ section {
   }
 }
 
+/* The launch film. The poster carries the section until the reader presses
+   play, so nothing downloads that they did not ask for. */
+.film {
+  margin: 34px 0 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+  line-height: 0;
+}
+
+.film video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .phone {
   margin: 0;
   border-radius: 34px;
