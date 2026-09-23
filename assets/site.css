@@ -416,21 +416,44 @@ section {
   line-height: 1.5;
 }
 
-/* Centred and modest on a phone; a phone photo does not need to be
-   phone-sized. On a small screen it never takes more than six tenths of
-   the height, so the first screen still shows the words. */
-.hero .hero-phone {
-  width: fit-content;
-  max-width: 250px;
+/* The hero deck. Four screens in depth, the front one sharp and the rest
+   dimmed behind it. It has to read with no motion at all, because a hero
+   gets about two seconds; the hover only rewards someone already looking. */
+.hero .deck {
+  position: relative;
+  width: min(94vw, 300px);
+  aspect-ratio: 1 / 1.2;
   margin: 0 auto;
+  display: grid;
+  place-items: center;
 }
 
-@media (max-width: 759px) {
-  .hero .hero-phone img {
-    width: auto;
-    max-width: 100%;
-    max-height: 60vh;
-  }
+.hero .deck-card {
+  position: absolute;
+  width: min(46vw, 168px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .42);
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1), filter .55s ease;
+}
+
+.hero .deck-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Each card carries its own depth, so the stacking never depends on source
+   order alone. A narrow screen closes the fan up into a stack. */
+.hero .deck-card:nth-child(1) { transform: translateX(-34%) rotate(-9deg) scale(.90); z-index: 1; filter: brightness(.70); }
+.hero .deck-card:nth-child(2) { transform: translateX(-16%) rotate(-4deg) scale(.95); z-index: 2; filter: brightness(.85); }
+.hero .deck-card:nth-child(3) { transform: translateX(0)    rotate(0deg)  scale(1);   z-index: 3; }
+.hero .deck-card:nth-child(4) { transform: translateX(18%)  rotate(5deg)  scale(.95); z-index: 2; filter: brightness(.85); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .deck-card { transition: none; }
 }
 
 @media (min-width: 760px) {
@@ -448,11 +471,20 @@ section {
     font-size: 21px;
     line-height: 1.45;
   }
-  .hero .hero-phone {
-    max-width: 320px;
+  .hero .deck {
+    width: min(38vw, 330px);
+    aspect-ratio: 1 / 1.12;
     margin: 0;
     justify-self: end;
   }
+  .hero .deck-card { width: min(22vw, 196px); }
+  .hero .deck-card:nth-child(1) { transform: translateX(-46%) rotate(-11deg) scale(.90); }
+  .hero .deck-card:nth-child(2) { transform: translateX(-22%) rotate(-5deg)  scale(.95); }
+  .hero .deck-card:nth-child(4) { transform: translateX(24%)  rotate(6deg)   scale(.95); }
+  .hero .deck:hover .deck-card:nth-child(1) { transform: translateX(-74%) rotate(-15deg) scale(.92); }
+  .hero .deck:hover .deck-card:nth-child(2) { transform: translateX(-38%) rotate(-7deg)  scale(.97); }
+  .hero .deck:hover .deck-card:nth-child(3) { transform: translateY(-10px) scale(1.03); }
+  .hero .deck:hover .deck-card:nth-child(4) { transform: translateX(42%)  rotate(9deg)   scale(.97); }
 }
 
 /* The launch film. The poster carries the section until the reader presses
@@ -471,30 +503,6 @@ section {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.phone {
-  margin: 0;
-  border-radius: 34px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--card);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
-}
-
-.phone img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.phone figcaption {
-  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text2);
-  padding: 12px 16px 14px;
-  background: var(--card);
 }
 
 /* Three phones in a row, or a row you swipe through on a narrow screen. */
