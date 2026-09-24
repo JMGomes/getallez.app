@@ -567,6 +567,159 @@ section {
   margin-right: 6px;
 }
 
+/* The interval colours by name, so a chip in the legend and a block in a
+   routine can say they are the same thing. */
+.c-getready { --tint: #4C586F; }
+.c-warmup   { --tint: #9A4A00; }
+.c-work     { --tint: #BF0076; }
+.c-rest     { --tint: #007174; }
+.c-recovery { --tint: #5447A1; }
+.c-cooldown { --tint: #2D5E7A; }
+
+/* --- The sports, drawn to scale ----------------------------------------
+
+   Six bullet points claimed the timer suits six sports. A routine drawn at
+   its real proportions shows it instead: the work and the rest of each
+   sport take the width they take, so a Tabata reads as fine stripes and a
+   boxing round as long blocks, and the two cannot be mistaken for each
+   other. The numbers stand next to the drawing in text, so the drawing
+   carries no information of its own and is hidden from a screen reader. */
+.shapes {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.shapes li {
+  margin: 0;
+  padding: 18px 0 20px;
+  border-top: 1px solid var(--border);
+}
+
+.shapes li:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.shape-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+}
+
+.shapes h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.shape-nums {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--text2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.shapes p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  color: var(--text2);
+}
+
+.strip {
+  display: flex;
+  gap: 2px;
+  height: 12px;
+  margin-top: 13px;
+  transform-origin: left center;
+}
+
+.strip span {
+  border-radius: 3px;
+  background: var(--tint);
+  min-width: 2px;
+}
+
+/* --- One whole session --------------------------------------------------
+
+   The paragraph used to list what a session is made of. The bar is that
+   session, at the same scale the app runs it, and the legend under it
+   names the colours. Point at a name and every other block steps back, so
+   the legend teaches the code rather than just listing it. */
+.session {
+  margin: 26px 0 0;
+}
+
+.session-fig {
+  margin: 0;
+}
+
+.session-bar {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  height: 48px;
+  overflow: hidden;
+  transform-origin: left center;
+}
+
+.session-bar .seg {
+  border-radius: 5px;
+  background: var(--tint);
+  min-width: 4px;
+  transition: opacity .3s ease;
+}
+
+/* The marker that sweeps the session once. It is a full width box with a
+   line down its left edge, which is the trick that lets it travel exactly
+   one bar width on the transform property: a percentage translate resolves
+   against the element's own box, and its own box is the whole bar. */
+.playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.playhead::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--text);
+}
+
+.session-fig figcaption {
+  margin: 14px 0 0;
+  font-size: 16px;
+  color: var(--text2);
+}
+
+.session .intervals {
+  margin-top: 18px;
+}
+
+@media (hover: hover) {
+  .session:has(.chip.c-getready:hover) .seg:not(.c-getready),
+  .session:has(.chip.c-warmup:hover)   .seg:not(.c-warmup),
+  .session:has(.chip.c-work:hover)     .seg:not(.c-work),
+  .session:has(.chip.c-rest:hover)     .seg:not(.c-rest),
+  .session:has(.chip.c-recovery:hover) .seg:not(.c-recovery),
+  .session:has(.chip.c-cooldown:hover) .seg:not(.c-cooldown) {
+    opacity: .18;
+  }
+}
+
 /* The interval types, each in its own colour, as on the timer. */
 .intervals {
   list-style: none;
@@ -794,6 +947,35 @@ footer .made {
   .motion [data-reveal] > :nth-child(5) { --i: 4; }
   .motion [data-reveal] > :nth-child(6) { --i: 5; }
   .motion [data-reveal] > :nth-child(n+7) { --i: 6; }
+
+  /* A routine draws itself from the left when it arrives, the way it runs.
+     Every drawing has its numbers written beside it in text, so a reader
+     who never sees one of these loses nothing at all. */
+  .motion .shapes .strip,
+  .motion .session .session-bar {
+    transform: scaleX(0);
+  }
+
+  .motion .shapes.in .strip,
+  .motion .session.in .session-bar {
+    transform: scaleX(1);
+    transition: transform .9s var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms + 120ms);
+  }
+
+  /* One pass of the marker, once, after the session has finished drawing.
+     It says the bar is a thing that runs. It does not loop, because a loop
+     would keep asking for attention the section does not need again. */
+  .motion .session.in .playhead {
+    animation: sweep 2.4s var(--ease) 1.25s both;
+  }
+
+  @keyframes sweep {
+    0%   { translate: 0 0;    opacity: 0; }
+    7%   { opacity: .8; }
+    93%  { opacity: .8; }
+    100% { translate: 100% 0; opacity: 0; }
+  }
 
   /* A heading rises out of its own line instead of fading, so it reads as
      one movement rather than two. The padding gives the clipped box room
