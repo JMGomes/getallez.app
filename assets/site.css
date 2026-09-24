@@ -12,6 +12,13 @@
   --rest: #007174;
   --recovery: #5447A1;
   --getready: #4C586F;
+  --warmup: #9A4A00;
+  --cooldown: #2D5E7A;
+  /* How much of an interval colour a section band carries, and how much
+     light the hero carries. A dark page swallows a tint, so it takes more
+     of one to say the same thing. */
+  --band-strength: 8%;
+  --glow: 20%;
   /* One curve for every move on the page. It leaves fast and lands slow,
      which is what makes a card look like it has weight. */
   --ease: cubic-bezier(.16, 1, .3, 1);
@@ -31,6 +38,8 @@
     --text2: #A2A8B5;
     --text3: #5D6472;
     --lift: 0 16px 36px rgba(0, 0, 0, .45);
+    --band-strength: 11%;
+    --glow: 34%;
     color-scheme: dark;
   }
 }
@@ -43,6 +52,8 @@
   --text2: #A2A8B5;
   --text3: #5D6472;
   --lift: 0 16px 36px rgba(0, 0, 0, .45);
+  --band-strength: 11%;
+  --glow: 34%;
   color-scheme: dark;
 }
 
@@ -366,6 +377,8 @@ th {
 
 main.wide {
   max-width: 960px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .appicon {
@@ -397,8 +410,15 @@ main.wide {
   }
 }
 
-section {
-  margin: 56px 0 0;
+main.wide section {
+  margin: 0;
+  padding: 48px 0;
+}
+
+/* The band separates one section from the next, so the heading inside a
+   band no longer has to. */
+main.wide section h2 {
+  margin-top: 26px;
 }
 
 .hero {
@@ -406,7 +426,7 @@ section {
   grid-template-columns: minmax(0, 1fr);
   gap: 28px;
   align-items: center;
-  margin-top: 4px;
+  padding: 4px 0 52px;
 }
 
 .hero > * {
@@ -914,5 +934,88 @@ a {
   a, .theme-toggle, .theme-toggle svg, .appicon,
   .feature, .feature-icon, .plan, .chip, .hero .deck-card {
     transition-duration: .01ms;
+  }
+}
+
+/* --- Section bands ------------------------------------------------------
+
+   The page runs the colours of a routine. The header and the hero sit in
+   the get-ready, the film is the warm-up, the sports section is the work,
+   and the page finishes on a cooldown in the footer. A reader who scrolls
+   the whole page has passed through the interval types the app counts, in
+   the order the app counts them, which is the same order the line at the
+   top of the window runs through.
+
+   The section about the six interval types keeps the plain surface. That
+   section is the legend for all six colours and cannot sit on one of them.
+
+   A band carries a few per cent of its colour. It has to say "a different
+   place" and never compete with the text standing on it. */
+
+[data-band="warmup"]   { --band: var(--warmup); }
+[data-band="work"]     { --band: var(--work); }
+[data-band="rest"]     { --band: var(--rest); }
+[data-band="recovery"] { --band: var(--recovery); }
+[data-band="cooldown"] { --band: var(--cooldown); }
+
+.stage,
+main.wide section,
+main.wide footer {
+  position: relative;
+}
+
+/* The band runs the full width of the window while the text it sits under
+   keeps the reading column. The page cannot scroll sideways, so the part of
+   the band that reaches past the window is clipped and costs nothing. */
+.stage::before,
+[data-band]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  translate: -50% 0;
+  z-index: -1;
+}
+
+[data-band]::before {
+  background: color-mix(in oklab,
+    var(--band) var(--band-strength), var(--surface));
+  box-shadow: inset 0 1px 0 color-mix(in oklab,
+    var(--band) 28%, var(--surface));
+}
+
+/* The hero is lit rather than tinted. Two soft lights sit behind it: the
+   work colour behind the deck, where it reads as the light the screens are
+   standing in, and the rest colour in the far corner to keep the headline
+   off a flat ground. */
+.stage {
+  padding-top: 24px;
+}
+
+.stage::before {
+  background:
+    radial-gradient(58% 62% at 76% 24%,
+      color-mix(in oklab, var(--work) var(--glow), transparent), transparent 72%),
+    radial-gradient(48% 54% at 4% 2%,
+      color-mix(in oklab, var(--rest) calc(var(--glow) * .6), transparent), transparent 70%),
+    color-mix(in oklab, var(--getready) calc(var(--band-strength) + 2%), var(--surface));
+}
+
+/* The footer closes the page, so its band carries the bottom padding that
+   the page itself used to carry. The inner pages keep their hairline. */
+main.wide footer[data-band] {
+  margin-top: 0;
+  padding: 30px 0 52px;
+  border-top: 0;
+}
+
+@media (min-width: 760px) {
+  main.wide section {
+    padding: 62px 0;
+  }
+  .hero {
+    padding: 8px 0 70px;
   }
 }
