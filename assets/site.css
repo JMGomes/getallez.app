@@ -644,6 +644,23 @@ section {
   min-width: 2px;
 }
 
+/* Three rows of two once there is room. Six full width rows were most of a
+   screen of the same shape repeating, and a strip only needs half the width
+   to show its rhythm. The second item leads a column, so it drops its rule
+   the way the first one does. */
+@media (min-width: 880px) {
+  .shapes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 44px;
+  }
+
+  .shapes li:nth-child(2) {
+    border-top: 0;
+    padding-top: 4px;
+  }
+}
+
 /* --- One whole session --------------------------------------------------
 
    The paragraph used to list what a session is made of. The bar is that
