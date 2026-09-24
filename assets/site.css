@@ -12,13 +12,21 @@
   --rest: #007174;
   --recovery: #5447A1;
   --getready: #4C586F;
-  --warmup: #9A4A00;
-  --cooldown: #2D5E7A;
-  /* How much of an interval colour a section band carries, and how much
-     light the hero carries. A dark page swallows a tint, so it takes more
-     of one to say the same thing. */
-  --band-strength: 8%;
-  --glow: 20%;
+  /* The interval palette, copied from the app. Each interval owns a ground
+     and the ink the app writes on that ground, and the app keeps a separate
+     set for each theme. A band on this page uses the same pair, so the page
+     and the timer are the same object. Source: lib/theme/allez_theme.dart. */
+  --getready-bg: #D7DEEC; --getready-ink: #2D384D; --getready-2: #4A5468; --getready-line: #8F9AB0;
+  --warmup-bg:   #FFD4B0; --warmup-ink:   #651E00; --warmup-2:   #7F3A1A; --warmup-line:   #C98B5D;
+  --work-bg:     #FFBEE6; --work-ink:     #650B3F; --work-2:     #7D2A58; --work-line:     #D97FB8;
+  --rest-bg:     #B0EBEB; --rest-ink:     #00484C; --rest-2:     #1F5F63; --rest-line:     #4FA6A8;
+  --recovery-bg: #D9D8FF; --recovery-ink: #362676; --recovery-2: #4F4291; --recovery-line: #9391D0;
+  --cooldown-bg: #C9E2F3; --cooldown-ink: #053D57; --cooldown-2: #2A5871; --cooldown-line: #6E9DB8;
+  /* A card on a pale band is white. A card on a deep one is the band with
+     light let into it, which is how the app draws a control on a work
+     screen. */
+  --band-card: #FFFFFF;
+  --glow: 26%;
   /* One curve for every move on the page. It leaves fast and lands slow,
      which is what makes a card look like it has weight. */
   --ease: cubic-bezier(.16, 1, .3, 1);
@@ -38,8 +46,14 @@
     --text2: #A2A8B5;
     --text3: #5D6472;
     --lift: 0 16px 36px rgba(0, 0, 0, .45);
-    --band-strength: 11%;
-    --glow: 34%;
+    --getready-bg: #4C586F; --getready-ink: #FAFAFA; --getready-2: #E2E4E8; --getready-line: #9AA2B1;
+    --warmup-bg:   #9A4A00; --warmup-ink:   #FAFAFA; --warmup-2:   #F3E5D8; --warmup-line:   #D0A27A;
+    --work-bg:     #BF0076; --work-ink:     #FAFAFA; --work-2:     #F6D7EA; --work-line:     #E07AB8;
+    --rest-bg:     #007174; --rest-ink:     #FAFAFA; --rest-2:     #D9ECEC; --rest-line:     #5EAAAC;
+    --recovery-bg: #5447A1; --recovery-ink: #FAFAFA; --recovery-2: #E2E0EE; --recovery-line: #A49BD0;
+    --cooldown-bg: #2D5E7A; --cooldown-ink: #FAFAFA; --cooldown-2: #DBE3E8; --cooldown-line: #8AA7B8;
+    --band-card: rgba(255, 255, 255, .13);
+    --glow: 40%;
     color-scheme: dark;
   }
 }
@@ -52,8 +66,14 @@
   --text2: #A2A8B5;
   --text3: #5D6472;
   --lift: 0 16px 36px rgba(0, 0, 0, .45);
-  --band-strength: 11%;
-  --glow: 34%;
+  --getready-bg: #4C586F; --getready-ink: #FAFAFA; --getready-2: #E2E4E8; --getready-line: #9AA2B1;
+  --warmup-bg:   #9A4A00; --warmup-ink:   #FAFAFA; --warmup-2:   #F3E5D8; --warmup-line:   #D0A27A;
+  --work-bg:     #BF0076; --work-ink:     #FAFAFA; --work-2:     #F6D7EA; --work-line:     #E07AB8;
+  --rest-bg:     #007174; --rest-ink:     #FAFAFA; --rest-2:     #D9ECEC; --rest-line:     #5EAAAC;
+  --recovery-bg: #5447A1; --recovery-ink: #FAFAFA; --recovery-2: #E2E0EE; --recovery-line: #A49BD0;
+  --cooldown-bg: #2D5E7A; --cooldown-ink: #FAFAFA; --cooldown-2: #DBE3E8; --cooldown-line: #8AA7B8;
+  --band-card: rgba(255, 255, 255, .13);
+  --glow: 40%;
   color-scheme: dark;
 }
 
@@ -952,11 +972,34 @@ a {
    A band carries a few per cent of its colour. It has to say "a different
    place" and never compete with the text standing on it. */
 
-[data-band="warmup"]   { --band: var(--warmup); }
-[data-band="work"]     { --band: var(--work); }
-[data-band="rest"]     { --band: var(--rest); }
-[data-band="recovery"] { --band: var(--recovery); }
-[data-band="cooldown"] { --band: var(--cooldown); }
+[data-band="getready"] { --band: var(--getready-bg); --band-ink: var(--getready-ink); --band-2: var(--getready-2); --band-line: var(--getready-line); }
+[data-band="warmup"]   { --band: var(--warmup-bg);   --band-ink: var(--warmup-ink);   --band-2: var(--warmup-2);   --band-line: var(--warmup-line); }
+[data-band="work"]     { --band: var(--work-bg);     --band-ink: var(--work-ink);     --band-2: var(--work-2);     --band-line: var(--work-line); }
+[data-band="rest"]     { --band: var(--rest-bg);     --band-ink: var(--rest-ink);     --band-2: var(--rest-2);     --band-line: var(--rest-line); }
+[data-band="recovery"] { --band: var(--recovery-bg); --band-ink: var(--recovery-ink); --band-2: var(--recovery-2); --band-line: var(--recovery-line); }
+[data-band="cooldown"] { --band: var(--cooldown-bg); --band-ink: var(--cooldown-ink); --band-2: var(--cooldown-2); --band-line: var(--cooldown-line); }
+
+/* Inside a band every token that carries a colour switches to the pair the
+   app uses there. Nothing below this has to know which band it stands on. */
+[data-band] {
+  --surface: var(--band);
+  --text: var(--band-ink);
+  --text2: var(--band-2);
+  /* The app's hairline is a line colour. It is far too faint to read as
+     text on the ground it belongs to, so the quietest text on a band stops
+     at the secondary, which the app already draws as readable there. The
+     hierarchy below it comes from the weight instead. */
+  --text3: var(--band-2);
+  --border: var(--band-line);
+  --card: var(--band-card);
+  color: var(--text);
+}
+
+/* The tick is teal against the page. Against a band it would be a second
+   colour arguing with the first, so it takes the band's own ink. */
+[data-band] .ticks .icon {
+  color: var(--text2);
+}
 
 .stage,
 main.wide section,
@@ -980,10 +1023,7 @@ main.wide footer {
 }
 
 [data-band]::before {
-  background: color-mix(in oklab,
-    var(--band) var(--band-strength), var(--surface));
-  box-shadow: inset 0 1px 0 color-mix(in oklab,
-    var(--band) 28%, var(--surface));
+  background: var(--band);
 }
 
 /* The hero is lit rather than tinted. Two soft lights sit behind it: the
@@ -999,8 +1039,8 @@ main.wide footer {
     radial-gradient(58% 62% at 76% 24%,
       color-mix(in oklab, var(--work) var(--glow), transparent), transparent 72%),
     radial-gradient(48% 54% at 4% 2%,
-      color-mix(in oklab, var(--rest) calc(var(--glow) * .6), transparent), transparent 70%),
-    color-mix(in oklab, var(--getready) calc(var(--band-strength) + 2%), var(--surface));
+      color-mix(in oklab, var(--rest) calc(var(--glow) * .5), transparent), transparent 70%),
+    var(--band);
 }
 
 /* The footer closes the page, so its band carries the bottom padding that
