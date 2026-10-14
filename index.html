@@ -25,16 +25,15 @@
   <meta name="twitter:title" content="Allez — Interval Timer for HIIT, Tabata &amp; Boxing">
   <meta name="twitter:description" content="A complete interval timer. No ads, no account, no subscription.">
   <meta name="twitter:image" content="https://getallez.app/assets/og-image.png">
-  <!-- The Smart App Banner needs the numeric App Store id. Add it once the
-       app record exists: <meta name="apple-itunes-app" content="app-id=ID"> -->
+  <meta name="apple-itunes-app" content="app-id=6816482422">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <script src="assets/theme.js"></script>
   <script src="assets/motion.js"></script>
   <link rel="stylesheet" href="assets/site.css">
-  <!-- Structured data. It carries no rating and no store link, because the
-       app has neither yet. Add downloadUrl once each store listing is live. -->
+  <!-- Structured data. It carries no rating. Two ratings are too few to
+       publish, and a thin aggregateRating reads worse than none. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -83,6 +82,10 @@
           "priceCurrency": "USD",
           "description": "Free, with an optional one-time Pro purchase"
         },
+        "downloadUrl": [
+          "https://apps.apple.com/app/id6816482422",
+          "https://play.google.com/store/apps/details?id=app.allez.timer"
+        ],
         "isPartOf": { "@id": "https://getallez.app/#website" }
       }
     ]
@@ -107,6 +110,8 @@
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-island" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"/><rect x="8" y="6.5" width="8" height="3" rx="1.5"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></symbol>
 </svg>
 
 <main class="wide">
@@ -129,7 +134,14 @@
       <p class="hero-sub">No ads, no account, no subscription.</p>
       <p class="lead">Set work, rest, sets, recovery and cycles for <strong>HIIT</strong>, <strong>Tabata</strong>, <strong>boxing rounds</strong> or <strong>circuit training</strong> &mdash; or start the classic 20/10 &times; 8 Tabata with one tap. Every beep style and every voice is in the free app. Pro is one payment, if you ever want it.</p>
       <div class="actions">
-        <span class="pill quiet">Coming soon to iPhone and Android</span>
+        <a class="store" href="https://apps.apple.com/app/id6816482422">
+          <svg class="icon storemark" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span><span class="store-top">Download on the</span><span class="store-name">App Store</span></span>
+        </a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=app.allez.timer">
+          <svg class="icon storemark" aria-hidden="true"><use href="#i-play"/></svg>
+          <span><span class="store-top">Get it on</span><span class="store-name">Google Play</span></span>
+        </a>
       </div>
     </div>
     <figure class="deck" role="img" aria-label="Four screens from Allez: the saved routines, the quick routine with its work and rest values, the running timer showing Burpees with 15 seconds left, and the history with this week's workouts.">
@@ -292,6 +304,21 @@
           <li><svg class="icon"><use href="#i-check"/></svg>One purchase. No subscription. Nothing to cancel.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="getit" data-reveal>
+    <h2><span>Start your first interval.</span></h2>
+    <p>Free on both stores. The whole timer, with no account, no ads and nothing to cancel.</p>
+    <div class="actions">
+        <a class="store" href="https://apps.apple.com/app/id6816482422">
+          <svg class="icon storemark" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span><span class="store-top">Download on the</span><span class="store-name">App Store</span></span>
+        </a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=app.allez.timer">
+          <svg class="icon storemark" aria-hidden="true"><use href="#i-play"/></svg>
+          <span><span class="store-top">Get it on</span><span class="store-name">Google Play</span></span>
+        </a>
     </div>
   </section>
 
