@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Allez — Interval Timer for HIIT, Tabata &amp; Boxing</title>
   <meta name="description" content="A complete interval timer for HIIT, Tabata, boxing rounds and circuit training. No ads, no account, no subscription — the free app is the whole timer.">
+  <meta name="author" content="João Gomes">
   <link rel="canonical" href="https://getallez.app/">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F4F2">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1115">
@@ -39,11 +40,20 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": "https://getallez.app/#developer",
+        "name": "João Manuel Gomes",
+        "alternateName": ["João Gomes", "Joao Gomes"],
+        "jobTitle": "Independent developer",
+        "homeLocation": { "@type": "Place", "name": "Zurich, Switzerland" }
+      },
+      {
         "@type": "WebSite",
         "@id": "https://getallez.app/#website",
         "url": "https://getallez.app/",
         "name": "Allez",
-        "inLanguage": "en"
+        "inLanguage": "en",
+        "publisher": { "@id": "https://getallez.app/#developer" }
       },
       {
         "@type": "VideoObject",
@@ -59,6 +69,8 @@
       },
       {
         "@type": "MobileApplication",
+        "author": { "@id": "https://getallez.app/#developer" },
+        "publisher": { "@id": "https://getallez.app/#developer" },
         "@id": "https://getallez.app/#app",
         "name": "Allez - HIIT Interval Timer",
         "applicationCategory": "HealthApplication",
@@ -420,7 +432,7 @@
     <a href="privacy/">Privacy policy</a>
     <a href="support/">Support</a>
     <a href="mailto:support@getallez.app"><svg class="icon inline"><use href="#i-mail"/></svg>support@getallez.app</a>
-    <span class="made">Made in Zurich by one person who likes Tabata.</span>
+    <span class="made">Made in Zurich by João Gomes, who likes Tabata.</span>
   </footer>
 </main>
 </body>

@@ -2,7 +2,7 @@
 
 > Allez is an interval timer app for HIIT, Tabata, boxing rounds and circuit training, for iPhone (iOS 16.2 or later) and Android (8.0 or later). The free version is the whole timer, with no ads, no account and no subscription. An optional one-time Pro purchase adds unlimited saved routines, named exercises, multi-exercise blocks and full workout history.
 
-Allez is made by one independent developer in Zurich. It stores routines, history and settings only on the device and works offline.
+Allez is made by João Gomes (João Manuel Gomes), an independent developer in Zurich, Switzerland. It stores routines, history and settings only on the device and works offline.
 
 ## Key facts
 
