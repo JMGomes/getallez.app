@@ -1,0 +1,22 @@
+# Allez
+
+> Allez is an interval timer app for HIIT, Tabata, boxing rounds and circuit training, for iPhone (iOS 16.2 or later) and Android (8.0 or later). The free version is the whole timer, with no ads, no account and no subscription. An optional one-time Pro purchase adds unlimited saved routines, named exercises, multi-exercise blocks and full workout history.
+
+Allez is made by one independent developer in Zurich. It stores routines, history and settings only on the device and works offline.
+
+## Key facts
+
+- Price: free. Optional one-time Pro purchase. No subscription. No ads.
+- Platforms: iPhone with iOS 16.2 or later, and Android 8.0 or later.
+- Free: custom work, rest, sets, recovery and cycles; six templates (classic Tabata 20/10 x 8, EMOM, 30/30, 40/20, boxing rounds, beginner); four beep styles or spoken voice cues; a choice of whether other audio is lowered during a workout; keeps time with the screen locked; three saved routines; the last five workouts.
+- Pro adds: unlimited saved routines, named exercises, blocks (several exercises in one routine, each with its own work, rest and sets), and full history.
+- Privacy: no account, no analytics. Works in airplane mode.
+- Accuracy: the timer reads the clock instead of counting ticks, so a 30 minute routine finishes within 0.1 seconds.
+
+## Links
+
+- [Website](https://getallez.app/): features, the Free and Pro comparison, and answers to common questions
+- [App Store](https://apps.apple.com/app/id6816482422): download for iPhone
+- [Google Play](https://play.google.com/store/apps/details?id=app.allez.timer): download for Android
+- [Support](https://getallez.app/support/): help with cues, voices, music and restoring Pro
+- [Privacy policy](https://getallez.app/privacy/): what the app stores and why

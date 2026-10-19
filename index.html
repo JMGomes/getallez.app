@@ -58,12 +58,12 @@
         "isPartOf": { "@id": "https://getallez.app/#website" }
       },
       {
-        "@type": "SoftwareApplication",
+        "@type": "MobileApplication",
         "@id": "https://getallez.app/#app",
         "name": "Allez - HIIT Interval Timer",
         "applicationCategory": "HealthApplication",
         "applicationSubCategory": "Interval timer",
-        "operatingSystem": "Android, iOS",
+        "operatingSystem": "iOS 16.2 or later, Android 8.0 or later",
         "inLanguage": "en",
         "image": "https://getallez.app/assets/og-image.png",
         "description": "A complete interval timer for HIIT, Tabata, boxing rounds and circuit training. Work, rest, sets, recovery and cycles set in seconds, with no ads, no account and no subscription. The free app is the whole timer.",
@@ -86,7 +86,82 @@
           "https://apps.apple.com/app/id6816482422",
           "https://play.google.com/store/apps/details?id=app.allez.timer"
         ],
+        "sameAs": [
+          "https://apps.apple.com/app/id6816482422",
+          "https://play.google.com/store/apps/details?id=app.allez.timer"
+        ],
+        "screenshot": [
+          "https://getallez.app/assets/screens/h_1_work.png",
+          "https://getallez.app/assets/screens/h_3_quick.png",
+          "https://getallez.app/assets/screens/h_5_routines.png",
+          "https://getallez.app/assets/screens/h_6_history.png"
+        ],
         "isPartOf": { "@id": "https://getallez.app/#website" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://getallez.app/#faq",
+        "isPartOf": {
+          "@id": "https://getallez.app/#website"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Allez free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The free version is the whole timer, with no time limit: any work, rest, sets, recovery and cycles, six ready-made workouts, all four beep styles and the spoken cues. An optional one-time Pro purchase adds unlimited saved routines, named exercises, blocks and your full history."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Allez have ads or a subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Allez shows no ads and has no subscription. Pro is a single payment. It stays with your Apple ID or Google account, so a new phone gets it back at no charge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which workouts can I time with Allez?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any interval workout. Six are ready to start: classic Tabata (20 seconds on, 10 off, 8 rounds), EMOM, 30/30, 40/20, boxing rounds and a beginner session. You can also build your own for HIIT, circuit training, running intervals or stretching."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Allez work on iPhone and Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Allez runs on iPhone with iOS 16.2 or later and on Android 8.0 or later. It is free on the App Store and on Google Play."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the timer keep running when I lock the screen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The cues continue when you lock the phone or switch apps. On iPhone, a Live Activity shows the current interval on the Lock Screen. On Android, a notification shows the interval with Pause and Resume."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I keep my music at full volume?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. By default, Allez lowers your music while the workout runs so every cue cuts through. To keep your music at full volume, turn off Lower music during a workout in Settings. The cues then play over the music."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Allez collect my data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Allez has no account and no analytics. Your routines, history and settings stay on your phone, and the timer works in airplane mode."
+            }
+          }
+        ]
       }
     ]
   }
@@ -305,6 +380,25 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <section data-reveal>
+    <p class="eyebrow">Questions</p>
+    <h2><span>Before you download.</span></h2>
+    <h3>Is Allez free?</h3>
+    <p>Yes. The free version is the whole timer, with no time limit: any work, rest, sets, recovery and cycles, six ready-made workouts, all four beep styles and the spoken cues. An optional one-time Pro purchase adds unlimited saved routines, named exercises, blocks and your full history.</p>
+    <h3>Does Allez have ads or a subscription?</h3>
+    <p>No. Allez shows no ads and has no subscription. Pro is a single payment. It stays with your Apple ID or Google account, so a new phone gets it back at no charge.</p>
+    <h3>Which workouts can I time with Allez?</h3>
+    <p>Any interval workout. Six are ready to start: classic Tabata (20 seconds on, 10 off, 8 rounds), EMOM, 30/30, 40/20, boxing rounds and a beginner session. You can also build your own for HIIT, circuit training, running intervals or stretching.</p>
+    <h3>Does Allez work on iPhone and Android?</h3>
+    <p>Yes. Allez runs on iPhone with iOS 16.2 or later and on Android 8.0 or later. It is free on the App Store and on Google Play.</p>
+    <h3>Does the timer keep running when I lock the screen?</h3>
+    <p>Yes. The cues continue when you lock the phone or switch apps. On iPhone, a Live Activity shows the current interval on the Lock Screen. On Android, a notification shows the interval with Pause and Resume.</p>
+    <h3>Can I keep my music at full volume?</h3>
+    <p>Yes. By default, Allez lowers your music while the workout runs so every cue cuts through. To keep your music at full volume, turn off <em>Lower music during a workout</em> in Settings. The cues then play over the music.</p>
+    <h3>Does Allez collect my data?</h3>
+    <p>No. Allez has no account and no analytics. Your routines, history and settings stay on your phone, and the timer works in airplane mode.</p>
   </section>
 
   <section class="getit" data-reveal>
